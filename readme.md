@@ -1,6 +1,11 @@
 ## Project Overview
 
 This project is a RAG (Retrieval-Augmented Generation) system that automatically fetches scientific articles related to the RARS1 gene from PubMed, indexes them into ChromaDB, and performs question-answering via the Gemini LLM.
+To run this project, first install the necessary dependencies using the requirements file, and then execute the main script: 
+```bash
+    pip install -r requirements.txt
+    python main.py
+```
 
 ### Workflow
 
