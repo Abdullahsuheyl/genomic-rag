@@ -1,0 +1,70 @@
+{
+    "project": "RARS1 Genomic-RAG",
+    "model": "gemini-2.5-flash",
+    "embedding": "S-BioBERT (pritamdeka/S-BioBert-snli-multinli-stsb)",
+    "status": "complete",
+    "summary": {
+        "total_tests": 7,
+        "passed": 7,
+        "failed": 0,
+        "pass_rate": "100.0%"
+    },
+    "tests": [
+        {
+            "test_type": "Hallucination Guardrail",
+            "query": "Does RARS1 mutation cause Type 1 Diabetes?",
+            "expected": "negative",
+            "llm_response": "I do not know based on available literature.",
+            "contains_guardrail_phrase": true,
+            "passed": true
+        },
+        {
+            "test_type": "Hallucination Guardrail",
+            "query": "Is RARS1 associated with seasonal flu or influenza?",
+            "expected": "negative",
+            "llm_response": "I do not know based on available literature.",
+            "contains_guardrail_phrase": true,
+            "passed": true
+        },
+        {
+            "test_type": "Hallucination Guardrail",
+            "query": "Does the RARS1 gene cause hair to turn blue?",
+            "expected": "negative",
+            "llm_response": "I do not know based on available literature.",
+            "contains_guardrail_phrase": true,
+            "passed": true
+        },
+        {
+            "test_type": "Hallucination Guardrail",
+            "query": "Is RARS1 linked to broken bone recovery speed?",
+            "expected": "negative",
+            "llm_response": "I do not know based on available literature.",
+            "contains_guardrail_phrase": true,
+            "passed": true
+        },
+        {
+            "test_type": "Hallucination Guardrail",
+            "query": "Does RARS1 cause cardiovascular disease or heart attacks?",
+            "expected": "negative",
+            "llm_response": "I do not know based on available literature.",
+            "contains_guardrail_phrase": true,
+            "passed": true
+        },
+        {
+            "test_type": "Valid Query Response",
+            "query": "What are the most recently reported variants in RARS1 and their associated symptoms?",
+            "expected": "positive",
+            "llm_response": "**Phenotypes / Clinical Features**\n\n*   Hypomyelinating leukodystrophy-9 (HLD-9) [PMID: 37186453, 38618971]\n*   Developmental and epileptic encephalopathy (DEE) [PMID: 37186453]\n*   Nystagmus [PMID: 38618971]\n*   Spasticity [PMID: 38618971]\n*   Severe, early onset epileptic encephalopathy with brain atrophy [PMID: 38618971]\n*   Mild condition with relatively maintained myelination [PMID: 38618971]\n\n**Variants / Mutations**\n\n*   c.5A>G (p.Asp2Gly) [PMID: 38618971]\n*   c.2T>C (p.Met1Thr) [PMID: 38618971]",
+            "contains_guardrail_phrase": false,
+            "passed": true
+        },
+        {
+            "test_type": "Valid Query Response",
+            "query": "What neurological symptoms are associated with RARS1 mutations?",
+            "expected": "positive",
+            "llm_response": "**Phenotypes / Clinical Features**\n\n*   Hypomyelinating leukodystrophy [PMID: 31814314, 37186453, 38618971]\n*   Nystagmus [PMID: 31814314, 38618971]\n*   Spasticity [PMID: 31814314, 38618971]\n*   Severe, early-onset epileptic encephalopathy with brain atrophy [PMID: 31814314, 38618971]\n*   Mild disease with relatively preserved myelination [PMID: 31814314, 38618971]\n*   Central nervous system (CNS) manifestations [PMID: 37186453]\n*   Developmental and epileptic encephalopathy (DEE) [PMID: 37186453]\n\n**Variants / Mutations**\n\n*   c.5A>G (p.Asp2Gly) [PMID: 38618971]\n*   c.2T>C (p.Met1Thr) [PMID: 38618971]",
+            "contains_guardrail_phrase": false,
+            "passed": true
+        }
+    ]
+}

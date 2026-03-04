@@ -1,0 +1,5 @@
+biopython
+langchain-text-splitters
+chromadb
+google-generativeai
+sentence-transformers
