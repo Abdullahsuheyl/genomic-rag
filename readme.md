@@ -1,7 +1,9 @@
 Project Overview
+
 This project is a RAG (Retrieval-Augmented Generation) system that automatically fetches scientific articles related to the RARS1 gene from PubMed, indexes them into ChromaDB, and performs question-answering via the Gemini LLM.
 
 Workflow
+
 The process begins by retrieving up-to-date biomedical articles via the PubMed API. The ingest.py script handles the integration of this raw data into the system.
 Since large research papers are too long to be processed directly by a language model, they are divided into smaller, meaningful chunks using the RecursiveCharacterTextSplitter. This method attempts to preserve paragraph and sentence integrity during splitting to minimize context loss.
 These text chunks are then converted into numerical vectors using the S-BioBERT model, which is specialized in biomedical terminology. Unlike standard BERT models, it is highly proficient in medical language. These vectors are stored in a ChromaDB vector database, allowing the system to rapidly retrieve article segments that are semantically closest to a user's query.
