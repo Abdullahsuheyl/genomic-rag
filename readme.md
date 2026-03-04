@@ -11,10 +11,13 @@ When a user asks a question, the query is also vectorized, and a similarity sear
 
 Design Decisions
 1. PubMed API Rate Limit Management
+
 The NCBI's free tier is limited to 3 requests per second without authentication. To prevent potential blocking and define API access, an email address is required for identification by NCBI. The system first retrieves a list of IDs and then fetches all articles in a single XML response. This approach avoids making separate requests for every individual article, keeping the request count to a minimum. Once retrieved, data is written to ChromaDB with a 0.1-second delay between batches of 50 to ensure stability.
 2. Embedding Model
+
 The pritamdeka/S-BioBert-snli-multinli-stsb model was chosen for this project. Based on the BioBERT architecture, this model has been pre-trained on PubMed articles and PMC full-texts. Consequently, it possesses a much stronger representation capacity for medical terminology, gene names, and clinical concepts compared to general-purpose models. It has been fine-tuned using the Sentence-Transformers framework on SNLI, MultiNLI, and STS-B datasets, optimizing it for dual-sentence comparison and semantic similarity tasks. This ensures more accurate query-passage matching, which is critical for RAG systems.
 3. Phenotype and Variant Differentiation
+
 A prompt-engineering-based approach is utilized to ensure the LLM presents information regarding RARS1 in a structured format. Gemini 2.5 Flash is the preferred model for this task. Every response is required to have two mandatory sections:
 •	Phenotypes / Clinical Features
 •	Variants / Mutations
